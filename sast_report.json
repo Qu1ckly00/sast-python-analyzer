@@ -1,0 +1,37 @@
+[
+    {
+        "file": ".\\deepseek_python_20251116_7293c8.py",
+        "vulnerabilities": [
+            {
+                "type": "Помилка парсингу",
+                "message": "Синтаксична помилка у файлі (код невалідний)",
+                "line": 0
+            }
+        ]
+    },
+    {
+        "file": ".\\test_vuln.py",
+        "vulnerabilities": [
+            {
+                "type": "Висока (SQL Injection)",
+                "message": "Динамічне формування SQL-запиту. Використовуйте параметризовані запити!",
+                "line": 8
+            }
+        ]
+    },
+    {
+        "file": ".\\Telegram Desktop\\lab\\lab\\speech_bot\\config.py",
+        "vulnerabilities": [
+            {
+                "type": "Середня (Hardcoded Secret)",
+                "message": "Можливий захардкоджений секрет у змінній \"TELEGRAM_TOKEN\"",
+                "line": 4
+            },
+            {
+                "type": "Середня (Hardcoded Secret)",
+                "message": "Можливий захардкоджений секрет у змінній \"GEMINI_API_KEY\"",
+                "line": 5
+            }
+        ]
+    }
+]
