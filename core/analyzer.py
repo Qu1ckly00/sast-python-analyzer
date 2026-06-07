@@ -10,6 +10,7 @@ from __future__ import annotations
 import ast
 from typing import Dict, List, Optional, Tuple, Type
 from core.finding import Finding
+from core.severity import Severity
 from core.rules.base import Rule
 from core.registry import registry
 import core.rules  # noqa: F401 -- triggers rule auto-registration
@@ -43,7 +44,7 @@ class SecurityAnalyzer(ast.NodeVisitor):
                     rule_id="SAST-PARSE-ERR",
                     title="Parse error",
                     message=f"Cannot parse source: {exc.msg}",
-                    severity=__import__("core.severity", fromlist=["Severity"]).Severity.INFO,
+                    severity=Severity.INFO,
                     line=exc.lineno or 0,
                     file_path=file_path,
                 )
@@ -79,7 +80,6 @@ def analyze_file(file_path: str) -> List[Finding]:
         with open(file_path, "r", encoding="utf-8") as fh:
             source = fh.read()
     except (OSError, UnicodeDecodeError) as exc:
-        from core.severity import Severity
         return [
             Finding(
                 rule_id="SAST-IO-ERR",
