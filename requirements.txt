@@ -1,0 +1,5 @@
+Flask>=2.3,<4.0
+
+# Optional: used only by tests/benchmark.py for cross-tool comparison.
+# bandit>=1.7.5
+# semgrep>=1.50

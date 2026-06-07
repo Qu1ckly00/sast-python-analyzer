@@ -1,0 +1,54 @@
+# =============================================================
+# Diploma artifacts (confidential — DO NOT push)
+# =============================================================
+diplom.docx
+~$*.docx
+build_docx.py
+diploma/
+_extract.py
+_extract_docx.py
+_zauv.txt
+_titulka.txt
+_metodychka.txt
+Зауваження.docx
+Титулка.docx
+Методичка_по_дипломним_роботам_*.pdf
+metodichka_po_diplomnim_robotam_*.pdf
+
+# =============================================================
+# Generated report artifacts (regenerate from source)
+# =============================================================
+demo.html
+demo.json
+demo.sarif
+report.html
+sast_report.json
+metrics.json
+sast-results.*
+
+# =============================================================
+# Python
+# =============================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+build/
+dist/
+
+# =============================================================
+# IDE / OS
+# =============================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

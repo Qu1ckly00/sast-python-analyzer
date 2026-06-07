@@ -1,0 +1,68 @@
+name: AST-SAST security scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write   # required to upload SARIF to the Security tab
+
+jobs:
+  scan:
+    name: Static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run AST-SAST
+        run: |
+          python cli_scanner.py . \
+            --sarif sast-results.sarif \
+            --json  sast-results.json  \
+            --fail-on HIGH
+
+      - name: Upload SARIF report to GitHub Security tab
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: sast-results.sarif
+          category: ast-sast
+
+      - name: Upload raw artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ast-sast-reports
+          path: |
+            sast-results.sarif
+            sast-results.json
+
+  benchmark:
+    name: Quality metrics
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt bandit semgrep
+      - run: python -m tests.benchmark --json metrics.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ast-sast-metrics
+          path: metrics.json
