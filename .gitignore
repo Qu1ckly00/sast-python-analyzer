@@ -21,10 +21,13 @@ metodichka_po_diplomnim_robotam_*.pdf
 demo.html
 demo.json
 demo.sarif
-report.html
+/report.html
 sast_report.json
 metrics.json
 sast-results.*
+
+# NOTE: sample_reports/ is intentionally tracked — it holds
+# canonical example outputs referenced from the thesis appendix.
 
 # =============================================================
 # Python
