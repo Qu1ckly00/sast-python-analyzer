@@ -9,21 +9,22 @@ and easy to reason about.
 
 ## Features
 
-The analyzer currently ships with eight detection rules covering the
+The analyzer currently ships with eleven detection rules covering the
 most prevalent categories of the OWASP Top 10 for Python applications:
 
-| Rule ID            | Vulnerability                  | CWE      | Severity |
-|--------------------|--------------------------------|----------|----------|
-| SAST-RCE-001       | Arbitrary code execution       | CWE-95   | CRITICAL |
-| SAST-SQLI-001      | SQL injection                  | CWE-89   | HIGH     |
-| SAST-XSS-001       | Cross-Site Scripting           | CWE-79   | HIGH     |
-| SAST-SECRET-001    | Hardcoded credentials          | CWE-798  | MEDIUM   |
-| SAST-PATH-001      | Path traversal                 | CWE-22   | HIGH     |
-| SAST-SSRF-001      | Server-Side Request Forgery    | CWE-918  | HIGH     |
-| SAST-DESERIAL-001  | Insecure deserialization       | CWE-502  | CRITICAL |
-| SAST-CMDI-001      | OS command injection           | CWE-78   | CRITICAL |
-| SAST-SSTI-001      | Server-Side Template Injection | CWE-1336 | CRITICAL |
-| SAST-XXE-001       | XML External Entity expansion  | CWE-611  | HIGH     |
+| Rule ID            | Vulnerability                  | CWE      | OWASP | Severity |
+|--------------------|--------------------------------|----------|-------|----------|
+| SAST-RCE-001       | Arbitrary code execution       | CWE-95   | A03   | CRITICAL |
+| SAST-SQLI-001      | SQL injection                  | CWE-89   | A03   | HIGH     |
+| SAST-XSS-001       | Cross-Site Scripting           | CWE-79   | A03   | HIGH     |
+| SAST-SECRET-001    | Hardcoded credentials          | CWE-798  | A02   | MEDIUM   |
+| SAST-PATH-001      | Path traversal                 | CWE-22   | A01   | HIGH     |
+| SAST-SSRF-001      | Server-Side Request Forgery    | CWE-918  | A10   | HIGH     |
+| SAST-DESERIAL-001  | Insecure deserialization       | CWE-502  | A08   | CRITICAL |
+| SAST-CMDI-001      | OS command injection           | CWE-78   | A03   | CRITICAL |
+| SAST-SSTI-001      | Server-Side Template Injection | CWE-1336 | A03   | CRITICAL |
+| SAST-XXE-001       | XML External Entity expansion  | CWE-611  | A05   | HIGH     |
+| SAST-AUTH-001      | Weak authentication pattern    | CWE-287  | A07   | HIGH     |
 
 Additional capabilities:
 
